@@ -1,0 +1,35 @@
+{
+  "actionButtons": {
+    "defaultColor": "none",
+    "reloadButton": null,
+    "commands": [
+      {
+        "name": "$(tools) Build",
+        "tooltip": "Compile the currently open exercise",
+        "saveAll": true,
+        "singleInstance": true,
+        "focus": true,
+        "cwd": "${fileDirname}",
+        "command": "clear && make ${fileBasenameNoExtension}"
+      },
+      {
+        "name": "$(play) Run",
+        "tooltip": "Run the currently open exercise (click Build first)",
+        "saveAll": true,
+        "singleInstance": true,
+        "focus": true,
+        "cwd": "${fileDirname}",
+        "command": "clear && make run F=${fileBasenameNoExtension}"
+      },
+      {
+        "name": "$(beaker) Test",
+        "tooltip": "Run the automatic tests for the currently open exercise",
+        "saveAll": true,
+        "singleInstance": true,
+        "focus": true,
+        "cwd": "${fileDirname}",
+        "command": "clear && make test EX=$(echo ${fileBasename} | sed -E 's/^ex([0-9]+)_.*/\\1/')"
+      }
+    ]
+  }
+}
